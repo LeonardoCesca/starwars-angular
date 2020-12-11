@@ -1,0 +1,24 @@
+<app-logo [size]="size"></app-logo>
+<div class="login">
+    <form class="login__form" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <div class="login__form__fields">
+            <label class="login__form__label">E-mail</label>
+            <input type="text"
+                class="login__form__input" 
+                formControlName="email" 
+                name="Email" 
+                required 
+            >
+            <div *ngIf="(email.valid && email.touched)">
+                blah
+            </div>
+        </div>
+        <div class="login__form__fields">
+            <label class="login__form__label">Senha</label>
+            <input type="password" class="login__form__input" formControlName="password" name="Senha" required>
+        </div>
+        <div class="login__form__btn">
+            <button type="submit">Entrar</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,10 @@
+<section class="home">
+    <app-logo></app-logo>
+    <span class="home__title">THE FORCE WILL BE WITH YOU</span>
+    <div class="home__action" (click)="navigateTo()" *ngIf="!checkToken()">
+        <a>Login</a>
+    </div>
+    <div class="home__action" (click)="navigateTo()" *ngIf="checkToken()">
+        <a>Ver filmes</a>
+    </div>
+</section>

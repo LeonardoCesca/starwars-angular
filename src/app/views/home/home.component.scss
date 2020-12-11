@@ -1,0 +1,23 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+    &__title {
+        color: #fff;
+        margin-top: 19px; 
+    }
+
+    &__action {
+        min-width: 200px;
+        text-align: center;
+        margin-top: 45px;
+        background: transparent;
+        border: 1px solid #fff;
+        padding: 10px;
+        color: #fff;
+        cursor: pointer;
+    }
+}
