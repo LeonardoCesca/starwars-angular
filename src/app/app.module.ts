@@ -14,6 +14,7 @@ import { LoginComponent } from './views/login/login.component';
 import { MovieComponent } from './views/movie/movie.component';
 
 import { environment } from '../environments/environment';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { environment } from '../environments/environment';
     HomeComponent,
     LoginComponent,
     MovieComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,
