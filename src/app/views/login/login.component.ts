@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { async } from '@angular/core/testing';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { FirebaseService } from '../../service/firebase.service';
 
@@ -13,6 +15,9 @@ export class LoginComponent implements OnInit {
 
   size: string = '107px';
 
+  errors: boolean = false;
+  loading: boolean = false;
+
   userForm = new FormGroup({
     email: new FormControl('', [
       Validators.required,
@@ -21,7 +26,7 @@ export class LoginComponent implements OnInit {
     password: new FormControl('', Validators.required)
   })
 
-  constructor(private firebaseService: FirebaseService) { }
+  constructor(private firebaseService: FirebaseService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -34,8 +39,17 @@ export class LoginComponent implements OnInit {
     return this.userForm.get('password');
   }
 
-  onSubmit() {
-    this.firebaseService.login(this.userForm.value).then((item) => console.log(item)).catch(err => console.log(err.message));
+  async onSubmit(): Promise<void> {
+    this.firebaseService.login(this.userForm.value).then(
+      (user) => {
+        localStorage['token'] = user.user.uid;
+        this.loading = !this.loading;
+        setTimeout(() => {
+          this.router.navigate(['movie']);
+        }, 3000); 
+      }
+    ).catch(() => {
+      this.errors = !this.errors;
+    });
   }
-
 }
