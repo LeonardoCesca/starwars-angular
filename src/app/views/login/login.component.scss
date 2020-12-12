@@ -1,6 +1,6 @@
 .login {
     color: #fff;
-    height: 50vh;
+    height: calc(100% - 290px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -39,6 +39,11 @@
                 color: #fff;
                 cursor: pointer;
             }
+        }
+
+        &__img {
+            position: absolute;
+            bottom: 30px;
         }
     }
 
