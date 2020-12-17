@@ -1,13 +1,26 @@
 .movies-list {
     display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-top: 18px;
+
+    @media (min-width: 725px) {
+        flex-direction: row;
+    }
 
     &__box {
-        background: rgba(36, 232, 255, 0.05);
+        background-color: #0A0909;
         border: 1px solid #351D1D;
-        box-shadow: 0px 0px 20px rgba(36, 232, 255, 0.15);
-        max-width: 316px;
+        width: 100%;
+        margin-right: 10px;
         margin-bottom: 20px;
         position: relative;
+
+        @media (min-width: 725px) {
+            width: 33.33%;
+        }
 
         &-detail {
             display: flex;
@@ -50,6 +63,21 @@
         display: flex;
         align-items: center;
         margin-left: 3px;
+    }
+
+    &__infos {
+        @media (min-width: 725px) {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 142px;
+        }
+        @media (min-width: 1600px) {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 126px;
+        }
     }
 }
 

@@ -1,5 +1,5 @@
-<div class="movies-list" *ngFor="let movie of movies.results, let i = index">
-    <div class="movies-list__box" [ngClass]="{'is-active': activeIndex === i}">
+<div class="movies-list">
+    <div class="movies-list__box" *ngFor="let movie of movies.results, let i = index" [ngClass]="{'is-active': activeIndex === i}">
         <div class="movies-list__content">
             <div class="movies-list__header">
                 <h2 class="movies-list__title">{{movie.title}}</h2>
@@ -9,8 +9,10 @@
                     </svg>                        
                 </div>
             </div>
-            <p class="movies-list__description">{{movie.opening_crawl}}</p>
-            <app-movies-detail director={{movie.director}} producer={{movie.producer}} index={{i}}></app-movies-detail>
+            <div class="movies-list__infos">
+                <p class="movies-list__description">{{movie.opening_crawl}}</p>
+                <app-movies-detail director={{movie.director}} producer={{movie.producer}} index={{i}}></app-movies-detail>
+            </div>
             <div class="movies-list__box-detail">
                 <span class="movies-list__box-quad"></span>
                 <span class="movies-list__box-quad"></span>

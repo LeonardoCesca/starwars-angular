@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieComponent implements OnInit {
 
+  size: string = '107px';
+
   constructor() { }
 
   ngOnInit(): void {

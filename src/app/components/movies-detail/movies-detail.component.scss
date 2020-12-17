@@ -1,6 +1,10 @@
 .movies-detail {
     margin-top: 20px;
 
+    &__title {
+        color: #FF0000;
+    }
+
     &__more {
         margin-bottom: 5px;
         &__title {
