@@ -1,0 +1,6 @@
+<div class="movies-detail">
+    <p (click)="getDetails(index)" *ngIf="!showDetails">> Details</p>
+    <div *ngIf="showDetails">
+        <p>{{this.producer}}</p>
+    </div>
+</div>

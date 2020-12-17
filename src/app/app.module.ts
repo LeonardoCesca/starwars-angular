@@ -15,6 +15,8 @@ import { MovieComponent } from './views/movie/movie.component';
 
 import { environment } from '../environments/environment';
 import { LoaderComponent } from './components/loader/loader.component';
+import { MoviesListComponent } from './components/movies-list/movies-list.component';
+import { MoviesDetailComponent } from './components/movies-detail/movies-detail.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { LoaderComponent } from './components/loader/loader.component';
     LoginComponent,
     MovieComponent,
     LoaderComponent,
+    MoviesListComponent,
+    MoviesDetailComponent,
   ],
   imports: [
     BrowserModule,

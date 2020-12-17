@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { async } from '@angular/core/testing';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { FirebaseService } from '../../service/firebase.service';
+import { FirebaseService } from '../../service/firebase/firebase.service';
 
 @Component({
   selector: 'app-login',
@@ -45,7 +44,7 @@ export class LoginComponent implements OnInit {
         localStorage['token'] = user.user.uid;
         this.loading = !this.loading;
         setTimeout(() => {
-          this.router.navigate(['movie']);
+          this.router.navigate(['movies']);
         }, 3000); 
       }
     ).catch(() => {
