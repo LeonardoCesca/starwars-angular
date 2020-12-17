@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class MoviesDetailComponent implements OnInit {
 
   @Input() producer;
+  @Input() director;
   @Input() index;
 
   showDetails: boolean = false;
@@ -19,7 +20,7 @@ export class MoviesDetailComponent implements OnInit {
   }
 
   getDetails(i) {
-      this.showDetails = !this.showDetails;
+    this.showDetails = !this.showDetails;
   }
 
 }

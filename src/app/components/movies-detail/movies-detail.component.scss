@@ -1,3 +1,13 @@
 .movies-detail {
     margin-top: 20px;
+
+    &__more {
+        margin-bottom: 5px;
+        &__title {
+            font-size: 15px;
+            color: #FFC500;
+            text-transform: uppercase;
+            font-weight: 100;
+        }
+    }
 }

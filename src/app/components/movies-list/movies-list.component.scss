@@ -3,11 +3,26 @@
 
     &__box {
         background: rgba(36, 232, 255, 0.05);
-        border: 1px solid rgba(36, 232, 255, 0.8);
+        border: 1px solid #351D1D;
         box-shadow: 0px 0px 20px rgba(36, 232, 255, 0.15);
         max-width: 316px;
         margin-bottom: 20px;
         position: relative;
+
+        &-detail {
+            display: flex;
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        &-quad {
+            width: 11px;
+            height: 8px;
+            background-color: #393434;
+            margin-right: 3px;
+        }
     }
 
     &__content {
@@ -40,6 +55,7 @@
 
 .is-active {
     background-color: gray;
+    border: 1px solid rgba(36, 232, 255, 0.8);
 
     svg {
         path {
@@ -50,6 +66,12 @@
     .movies-list {
         &__header {
             justify-content: space-between;
+        }
+
+        &__box {
+            &-quad {
+                border: 1px solid rgba(36, 232, 255, 0.8);
+            }
         }
 
         &__detail {

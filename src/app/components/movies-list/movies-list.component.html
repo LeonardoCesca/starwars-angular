@@ -1,6 +1,6 @@
 <div class="movies-list" *ngFor="let movie of movies.results, let i = index">
-    <div class="movies-list__box">
-        <div class="movies-list__content" [ngClass]="{'is-active': activeIndex === i}">
+    <div class="movies-list__box" [ngClass]="{'is-active': activeIndex === i}">
+        <div class="movies-list__content">
             <div class="movies-list__header">
                 <h2 class="movies-list__title">{{movie.title}}</h2>
                 <div class="movies-list__detail" (click)="toggleStatus(i)">
@@ -10,7 +10,12 @@
                 </div>
             </div>
             <p class="movies-list__description">{{movie.opening_crawl}}</p>
-            <app-movies-detail producer={{movie.producer}} index={{i}}></app-movies-detail>
+            <app-movies-detail director={{movie.director}} producer={{movie.producer}} index={{i}}></app-movies-detail>
+            <div class="movies-list__box-detail">
+                <span class="movies-list__box-quad"></span>
+                <span class="movies-list__box-quad"></span>
+                <span class="movies-list__box-quad"></span>
+            </div>
         </div>
     </div>
 </div>
