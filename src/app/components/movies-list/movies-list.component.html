@@ -11,7 +11,13 @@
             </div>
             <div class="movies-list__infos">
                 <p class="movies-list__description">{{movie.opening_crawl}}</p>
-                <app-movies-detail director={{movie.director}} producer={{movie.producer}} index={{i}}></app-movies-detail>
+                <app-movies-detail 
+                    director={{movie.director}} 
+                    producer={{movie.producer}} 
+                    isActive={{isActive}}
+                    index={{i}}
+                >
+                </app-movies-detail>
             </div>
             <div class="movies-list__box-detail">
                 <span class="movies-list__box-quad"></span>

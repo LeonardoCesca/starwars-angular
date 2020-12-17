@@ -9,6 +9,7 @@ export class MoviesDetailComponent implements OnInit {
 
   @Input() producer;
   @Input() director;
+  @Input() isActive;
   @Input() index;
 
   showDetails: boolean = false;

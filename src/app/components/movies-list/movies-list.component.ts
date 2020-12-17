@@ -25,7 +25,8 @@ export class MoviesListComponent implements OnInit {
     })
   }
 
-  toggleStatus(i: number): void {
+  toggleStatus(i: number) {
     this.activeIndex = i;
+    return this.activeIndex;
   }
 }

@@ -1,5 +1,9 @@
 <div class="movies-detail">
-    <p (click)="getDetails(index)" *ngIf="!showDetails" class="movies-detail__title">> Details</p>
+    <div class="movies-detail__content" (click)="getDetails(index)" *ngIf="!showDetails">
+        <img src="../../../assets/svgs/detail.svg" alt="detail">
+        <img src="../../../assets/svgs/detail.svg" alt="detail">
+        <p class="movies-detail__title" [ngClass]="{'movies-detail__title--white': isActive}">Details</p>
+    </div>
     <div *ngIf="showDetails">
         <div class="movies-detail__more">
             <h4 class="movies-detail__more__title">Producer</h4>

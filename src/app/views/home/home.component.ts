@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   }
 
   navigateTo() {
-    return localStorage['token'] ? this.router.navigate(['movie']) : this.router.navigate(['login']);
+    return localStorage['token'] ? this.router.navigate(['movies']) : this.router.navigate(['login']);
   }
 
   checkToken() {
