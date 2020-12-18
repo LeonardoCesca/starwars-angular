@@ -11,6 +11,7 @@ export class MoviesListComponent implements OnInit {
 
   movies: any = [];
   activeIndex: number;
+  isActive: boolean = true;
 
   constructor(private swapiService: SwapiService) { }
 
@@ -27,6 +28,7 @@ export class MoviesListComponent implements OnInit {
 
   toggleStatus(i: number) {
     this.activeIndex = i;
+    this.isActive = true;
     return this.activeIndex;
   }
 }

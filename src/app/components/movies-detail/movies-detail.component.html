@@ -2,12 +2,12 @@
     <div class="movies-detail__content" (click)="getDetails(index)" *ngIf="!showDetails">
         <img src="../../../assets/svgs/detail.svg" alt="detail">
         <img src="../../../assets/svgs/detail.svg" alt="detail">
-        <p class="movies-detail__title" [ngClass]="{'movies-detail__title--white': isActive}">Details</p>
+        <p class="movies-detail__title" [ngClass]="isActive ? 'movies-detail__title--white': '' ">Details</p>
     </div>
-    <div *ngIf="showDetails">
+    <div *ngIf="showDetails && !loading">
         <div class="movies-detail__more">
-            <h4 class="movies-detail__more__title">Producer</h4>
-            <p>{{producer}}</p>
+            <h4 class="movies-detail__more__title">Planets</h4>
+            <p>{{planetsResult}}</p>
         </div>
         <div class="movies-detail__more">
             <h4 class="movies-detail__more__title">Director</h4>
@@ -18,4 +18,5 @@
             <p>{{producer}}</p>
         </div>
     </div>
+    <app-loader *ngIf="loading"></app-loader>
 </div>

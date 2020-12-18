@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { SwapiService } from '../../service/swapi/swapi.service';
 
 @Component({
   selector: 'app-movies-detail',
@@ -9,19 +10,31 @@ export class MoviesDetailComponent implements OnInit {
 
   @Input() producer;
   @Input() director;
-  @Input() isActive;
   @Input() index;
 
   showDetails: boolean = false;
   currentIndex: number = 0;
+  planets: any = [];
+  planetsResult: string = '';
+  loading: boolean = false;
 
-  constructor() { }
+  constructor(private swapiService: SwapiService) { }
 
   ngOnInit(): void {
   }
 
   getDetails(i) {
     this.showDetails = !this.showDetails;
+    this.loading = !this.loading;
+    this.swapiService.getPlanetById(i).subscribe((item : any) => {
+      item.planets.map(ix => {
+        this.swapiService.getPlanetsByUrl(ix).subscribe((planet : any) => { 
+          this.planets.push(planet.name);
+          this.planetsResult = this.planets.join(',');
+          this.loading = false;
+        });
+      });
+    });
   }
 
 }
