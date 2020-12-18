@@ -84,8 +84,9 @@
 }
 
 .is-active {
-    background-color: gray;
+    background: rgba(36, 232, 255, 0.05);
     border: 1px solid rgba(36, 232, 255, 0.8);
+    box-shadow: 0px 0px 20px rgba(36, 232, 255, 0.15);    
 
     svg {
         path {
