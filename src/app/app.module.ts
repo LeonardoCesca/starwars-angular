@@ -17,6 +17,7 @@ import { environment } from '../environments/environment';
 import { LoaderComponent } from './components/loader/loader.component';
 import { MoviesListComponent } from './components/movies-list/movies-list.component';
 import { MoviesDetailComponent } from './components/movies-detail/movies-detail.component';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { MoviesDetailComponent } from './components/movies-detail/movies-detail.
     LoaderComponent,
     MoviesListComponent,
     MoviesDetailComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
