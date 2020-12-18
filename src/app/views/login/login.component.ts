@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
   }
 
   async onSubmit(): Promise<void> {
+    this.errors = false;
     this.firebaseService.login(this.userForm.value).then(
       (user) => {
         localStorage['token'] = user.user.uid;
@@ -49,7 +50,7 @@ export class LoginComponent implements OnInit {
         }, 3000); 
       }
     ).catch(() => {
-      this.errors = !this.errors;
+      this.errors = true;
     });
   }
 

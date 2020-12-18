@@ -22,7 +22,6 @@ export class MoviesListComponent implements OnInit {
   getAllMovies(): void {
     this.swapiService.getAllMovies().subscribe(movies => {
       this.movies = movies;
-      console.log(this.movies);
     })
   }
 
