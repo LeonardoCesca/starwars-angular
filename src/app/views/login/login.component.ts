@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
   constructor(private firebaseService: FirebaseService, private router: Router) { }
 
   ngOnInit(): void {
+    this.verifyLogged();
   }
 
   get email() {
@@ -50,5 +51,9 @@ export class LoginComponent implements OnInit {
     ).catch(() => {
       this.errors = !this.errors;
     });
+  }
+
+  verifyLogged() {
+    return !localStorage['token'] ? '' : this.router.navigate(['movies']);
   }
 }
