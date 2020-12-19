@@ -5,18 +5,18 @@ import { Router } from '@angular/router';
 import { FirebaseService } from '../../service/firebase/firebase.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class RegisterComponent implements OnInit {
 
   size: string = '107px';
 
   errors: boolean = false;
   loading: boolean = false;
 
-  userForm = new FormGroup({
+  registerForm = new FormGroup({
     email: new FormControl('', [
       Validators.required,
       Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")
@@ -27,20 +27,19 @@ export class LoginComponent implements OnInit {
   constructor(private firebaseService: FirebaseService, private router: Router) { }
 
   ngOnInit(): void {
-    this.verifyLogged();
   }
 
   get email() {
-    return this.userForm.get('email');
+    return this.registerForm.get('email');
   }
 
   get password() {
-    return this.userForm.get('password');
+    return this.registerForm.get('password');
   }
 
   async onSubmit(): Promise<void> {
     this.errors = false;
-    this.firebaseService.login(this.userForm.value).then(
+    this.firebaseService.register(this.registerForm.value).then(
       (user) => {
         localStorage['token'] = user.user.uid;
         this.loading = !this.loading;
@@ -51,9 +50,5 @@ export class LoginComponent implements OnInit {
     ).catch(() => {
       this.errors = true;
     });
-  }
-
-  verifyLogged() {
-    return !localStorage['token'] ? '' : this.router.navigate(['movies']);
   }
 }

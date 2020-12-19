@@ -10,7 +10,11 @@ export class FirebaseService {
 
   constructor(private afAuth: AngularFireAuth) { }
 
- login ({email, password}: User) {
-   return this.afAuth.signInWithEmailAndPassword(email, password);
- }
+  login ({email, password}: User) {
+    return this.afAuth.signInWithEmailAndPassword(email, password);
+  }
+
+  register ({email, password}: User) {
+    return this.afAuth.createUserWithEmailAndPassword(email, password);
+  }
 }
