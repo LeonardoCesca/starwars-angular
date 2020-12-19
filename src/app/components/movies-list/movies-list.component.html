@@ -1,5 +1,5 @@
 <div class="movies-list">
-    <div class="movies-list__box" *ngFor="let movie of movies.results, let i = index" [ngClass]="{'is-active': activeIndex === i}">
+    <div class="movies-list__box" *ngFor="let movie of movies.results, let i = index" [ngClass]="{'is-active': activeIndex === i && movie.isActive}">
         <div class="movies-list__content">
             <div class="movies-list__header">
                 <h2 class="movies-list__title">{{movie.title}}</h2>
