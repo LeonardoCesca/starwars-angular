@@ -3,6 +3,6 @@
         <img src="../../../assets/svgs/popcorn.svg" alt="popcorn">
         <label>Films</label>
     </div>
-    <input type="text" class="search__input">
+    <input type="text" class="search__input" (keyup)="getMoviesSearched($event)">
     <img src="../../../assets/svgs/search.svg" alt="search" class="search__img">
 </div>

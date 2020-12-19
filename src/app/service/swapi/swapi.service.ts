@@ -17,7 +17,11 @@ export class SwapiService {
     return this.http.get(`${environment.apiUrl}/films/${id}`)
   }
 
-  getPlanetsByUrl(url) {
+  getPlanetsByUrl(url: string) {
     return this.http.get(`${url}`)
+  }
+
+  getMoviesBySearch(term: string) {
+    return this.http.get(`${environment.apiUrl}/films/?search=${term}`)
   }
 }
