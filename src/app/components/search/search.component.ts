@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { SwapiService } from '../../service/swapi/swapi.service';
 
 @Component({
@@ -11,19 +11,28 @@ export class SearchComponent implements OnInit {
 
   inputValue: string = '';
   moviesSearched: any = [];
+  moviesFiltered: any;
 
   @Output() moviesSearch = new EventEmitter<any>();
+
+  search = new FormGroup({
+    term: new FormControl('', Validators.required)
+  })
 
   constructor(private swapiService: SwapiService) { }
 
   ngOnInit(): void {
   }
 
+  get term() {
+    return this.search.get('term');
+  }
+
   getMoviesSearched(term): void {
-    this.inputValue = term.target.value;
-    this.swapiService.getMoviesBySearch(this.inputValue).subscribe((movies) => {
-      this.moviesSearched = movies;
-      this.moviesSearch.emit(this.moviesSearched.results);
+    this.swapiService.getMoviesBySearch(term.value).subscribe((movies) => {
+      this.moviesSearched.push(movies);
+      this.moviesSearched.map(item => this.moviesFiltered = item);
+      this.moviesSearch.emit(this.moviesFiltered);
     });
   }
 

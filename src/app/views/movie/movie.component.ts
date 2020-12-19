@@ -9,9 +9,15 @@ export class MovieComponent implements OnInit {
 
   size: string = '107px';
 
+  moviesFiltered: any;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  getMoviesFiltered(movies: any) {
+    this.moviesFiltered = movies;
   }
 
 }

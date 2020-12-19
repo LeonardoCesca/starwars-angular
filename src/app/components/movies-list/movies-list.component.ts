@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, Input, OnInit } from '@angular/core';
 import { SwapiService } from '../../service/swapi/swapi.service';
 
 @Component({
@@ -12,10 +11,18 @@ export class MoviesListComponent implements OnInit {
   movies: any = [];
   activeIndex: number;
 
+  @Input() moviesSearched;
+
   constructor(private swapiService: SwapiService) { }
 
   ngOnInit(): void {
     this.getAllMovies();
+  }
+
+  ngOnChanges(changes) {
+    if (changes.moviesSearched && this.moviesSearched !== undefined) {
+      this.movies = changes.moviesSearched.currentValue;
+    }
   }
 
   getAllMovies(): void {
