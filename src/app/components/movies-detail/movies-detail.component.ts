@@ -30,7 +30,7 @@ export class MoviesDetailComponent implements OnInit {
       item.planets.map(ix => {
         this.swapiService.getPlanetsByUrl(ix).subscribe((planet : any) => { 
           this.planets.push(planet.name);
-          this.planetsResult = this.planets.join(',');
+          this.planetsResult = this.planets.join(", ");
           this.loading = false;
         });
       });
