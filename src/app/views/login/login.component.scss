@@ -1,0 +1,15 @@
+.login {
+    height: calc(100vh - 170px);
+    margin-top: 70px;
+
+    &__register {
+        color: #fff;
+        text-align: center;
+        padding-top: 40px;
+        
+        a {
+            color: #FFC500;
+            text-decoration: none;
+        }
+    }
+}
