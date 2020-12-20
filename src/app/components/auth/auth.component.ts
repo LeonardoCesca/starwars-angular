@@ -56,9 +56,7 @@ export class AuthComponent implements OnInit {
         this.errors = true;
       });
     } else if (this.type === 'register') {
-      this.firebaseService.register(this.authForm.value).then(
-        (user) => {
-          localStorage['token'] = user.user.uid;
+      this.firebaseService.register(this.authForm.value).then(() => {
           this.loading = !this.loading;
           setTimeout(() => {
             this.router.navigate(['login']);
