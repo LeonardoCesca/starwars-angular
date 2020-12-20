@@ -1,0 +1,11 @@
+.logout {
+    position: absolute;
+    width: 25px;
+    top: 11px;
+    right: 14px;
+    cursor: pointer;
+
+    @media (min-width: 768px) {
+        width: 30px;
+    }
+}

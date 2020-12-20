@@ -20,6 +20,7 @@ import { MoviesDetailComponent } from './components/movies-detail/movies-detail.
 import { SearchComponent } from './components/search/search.component';
 import { RegisterComponent } from './views/register/register.component';
 import { AuthComponent } from './components/auth/auth.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { AuthComponent } from './components/auth/auth.component';
     SearchComponent,
     RegisterComponent,
     AuthComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,
