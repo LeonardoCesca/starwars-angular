@@ -1,6 +1,5 @@
 .auth {
     color: #fff;
-    height: calc(100% - 290px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -55,6 +54,11 @@
         &__field {
             font-size: 13px;
             margin-top: 5px;
+
+            a {
+                color: #FFC500;
+                text-decoration: none;
+            }
         }
     }
 

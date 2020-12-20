@@ -19,8 +19,11 @@
                 Este campo é requerido.
             </p>
         </div>
-        <div class="auth__error" *ngIf="errors">
-            <p>E-mail ou senha inválidos. Tente novamente</p>
+        <div class="auth__error" *ngIf="errors && !registered">
+            <p class="auth__error__field">E-mail ou senha inválidos. Tente novamente</p>
+        </div>
+        <div class="auth__error" *ngIf="errors && registered">
+            <p class="auth__error__field">E-mail já cadastrado. Entre <a routerLink="/login">aqui</a></p>
         </div>
         <div class="auth__form__btn">
             <button type="submit">Entrar</button>

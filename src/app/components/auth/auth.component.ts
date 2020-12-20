@@ -15,6 +15,7 @@ export class AuthComponent implements OnInit {
 
   errors: boolean = false;
   loading: boolean = false;
+  registered: boolean = false;
 
   @Input() type: string;
 
@@ -63,13 +64,21 @@ export class AuthComponent implements OnInit {
             this.router.navigate(['login']);
           }, 3000); 
         }
-      ).catch(() => {
+      ).catch((err) => {
         this.errors = true;
+        this.verifyEmailExists(err);
       });
     }
   }
 
   verifyLogged() {
     return !localStorage['token'] ? '' : this.router.navigate(['movies']);
+  }
+
+  verifyEmailExists(err) {
+    console.log(err.code);
+    if(err.code === 'auth/email-already-in-use') {
+      this.registered = true;
+    }
   }
 }
