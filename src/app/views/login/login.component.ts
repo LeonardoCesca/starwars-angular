@@ -1,8 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-
-import { FirebaseService } from '../../service/firebase/firebase.service';
 
 @Component({
   selector: 'app-login',
@@ -12,48 +8,9 @@ import { FirebaseService } from '../../service/firebase/firebase.service';
 export class LoginComponent implements OnInit {
 
   size: string = '107px';
+  type: string = 'login';
 
-  errors: boolean = false;
-  loading: boolean = false;
+  constructor() { }
 
-  userForm = new FormGroup({
-    email: new FormControl('', [
-      Validators.required,
-      Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")
-    ]),
-    password: new FormControl('', Validators.required)
-  })
-
-  constructor(private firebaseService: FirebaseService, private router: Router) { }
-
-  ngOnInit(): void {
-    this.verifyLogged();
-  }
-
-  get email() {
-    return this.userForm.get('email');
-  }
-
-  get password() {
-    return this.userForm.get('password');
-  }
-
-  async onSubmit(): Promise<void> {
-    this.errors = false;
-    this.firebaseService.login(this.userForm.value).then(
-      (user) => {
-        localStorage['token'] = user.user.uid;
-        this.loading = !this.loading;
-        setTimeout(() => {
-          this.router.navigate(['movies']);
-        }, 3000); 
-      }
-    ).catch(() => {
-      this.errors = true;
-    });
-  }
-
-  verifyLogged() {
-    return !localStorage['token'] ? '' : this.router.navigate(['movies']);
-  }
+  ngOnInit(): void {}
 }

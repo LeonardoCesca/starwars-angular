@@ -1,0 +1,31 @@
+<div class="auth">
+    <form class="auth__form" [formGroup]="authForm" (ngSubmit)="onSubmit()">
+        <div class="auth__form__fields">
+            <label class="auth__form__label">E-mail</label>
+            <input type="text"
+                class="auth__form__input" 
+                formControlName="email" 
+                name="Email" 
+                required 
+            >
+            <p class="auth__error__field" *ngIf="email.touched && email.errors && !errors">
+                Por favor, digite um e-mail válido.
+            </p>
+        </div>
+        <div class="auth__form__fields">
+            <label class="auth__form__label">Senha</label>
+            <input type="password" class="auth__form__input" formControlName="password" name="Senha" required>
+            <p class="auth__error__field" *ngIf="password.touched && password.errors && !errors">
+                Este campo é requerido.
+            </p>
+        </div>
+        <div class="auth__error" *ngIf="errors">
+            <p>E-mail ou senha inválidos. Tente novamente</p>
+        </div>
+        <div class="auth__form__btn">
+            <button type="submit">Entrar</button>
+        </div>
+    </form>
+    <img src="../../../assets/svgs/planet.svg" alt="" class="auth__form__img">
+    <app-loader *ngIf="loading"></app-loader>
+</div>

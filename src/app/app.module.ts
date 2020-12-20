@@ -19,6 +19,7 @@ import { MoviesListComponent } from './components/movies-list/movies-list.compon
 import { MoviesDetailComponent } from './components/movies-detail/movies-detail.component';
 import { SearchComponent } from './components/search/search.component';
 import { RegisterComponent } from './views/register/register.component';
+import { AuthComponent } from './components/auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { RegisterComponent } from './views/register/register.component';
     MoviesDetailComponent,
     SearchComponent,
     RegisterComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,
