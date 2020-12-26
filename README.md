@@ -1,10 +1,8 @@
 # Starwars Angular
 
 ## Projeto para estudos feito em Angular 11.
-<br/>
 
 ## 🚀 Build 
-<hr>
 
 ### Servidor de Desenvolvimento
 
@@ -18,7 +16,6 @@ Rode o comando `ng build` para buildar o projeto. O build irá gerar uma pasta `
 
 
 ## 📙 Funcionalidades
-<hr>
 
 - Login
 - Registro
@@ -26,6 +23,5 @@ Rode o comando `ng build` para buildar o projeto. O build irá gerar uma pasta `
 <br/><br/>
 
 ## 🔑 Env
-<hr>
 
 * Para rodar o projeto corretamente, entre em contato para adquirir as variáveis de ambiente (environments).
