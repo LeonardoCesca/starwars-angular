@@ -50,7 +50,7 @@ export class AuthComponent implements OnInit {
           this.loading = !this.loading;
           setTimeout(() => {
             this.router.navigate(['movies']);
-          }, 3000); 
+          }, 2000); 
         }
       ).catch(() => {
         this.errors = true;
