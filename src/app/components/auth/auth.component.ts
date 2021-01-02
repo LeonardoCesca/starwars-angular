@@ -16,6 +16,7 @@ export class AuthComponent implements OnInit {
   errors: boolean = false;
   loading: boolean = false;
   registered: boolean = false;
+  loaderType: string = "login";
 
   @Input() type: string;
 
