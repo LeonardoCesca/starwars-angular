@@ -34,7 +34,7 @@ export class MoviesDetailComponent implements OnInit {
           this.planetsResult = this.planets.join(", ");
           setTimeout(() => {
             this.loading = false;
-          }, 3000);
+          }, 2500);
         });
       });
     });

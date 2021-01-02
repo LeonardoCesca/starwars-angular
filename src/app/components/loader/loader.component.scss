@@ -40,6 +40,8 @@
     }
 
     &__movies {
+        text-align: center;
+        
         .pupil {
             color: #dfdfdf;
             animation: blinking 1.2s ease-in-out;
@@ -77,10 +79,10 @@
                 transform: scale(.6);
             }
             50% {
-                transform: translateX(108px) scale(.8);
+                transform: scale(.8);
             }
             100% {
-                transform: translateX(216px) scale(1);
+                transform: scale(1);
             }
         }
     }
