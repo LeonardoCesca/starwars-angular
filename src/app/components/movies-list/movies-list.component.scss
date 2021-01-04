@@ -17,6 +17,7 @@
         margin-right: 10px;
         margin-bottom: 20px;
         position: relative;
+        transition: all .5s;
 
         @media (min-width: 725px) {
             width: 33.33%;
@@ -35,6 +36,37 @@
             height: 8px;
             background-color: #393434;
             margin-right: 3px;
+        }
+
+        &:hover {
+            background: rgba(36, 232, 255, 0.05);
+            border: 1px solid rgba(36, 232, 255, 0.8);
+            box-shadow: 0px 0px 20px rgba(36, 232, 255, 0.15);
+            color: #fff;    
+        
+            svg {      
+                path {
+                    fill: #fff;
+                    animation: aircraft 2s forwards 1s;
+                }
+            }
+
+            .movies-list__box-quad {
+                color: #fff;
+                animation: borderEffect 1s linear both;
+
+                &:first-child {
+                    animation-delay: .5s;
+                }
+
+                &:nth-child(2n) {
+                    animation-delay: 1s;
+                }
+
+                &:last-child {
+                    animation-delay: 1.5s;
+                }
+            }
         }
     }
 
@@ -65,7 +97,6 @@
         display: flex;
         align-items: center;
         margin-left: 3px;
-        cursor: pointer;
     }
 
     &__infos {
@@ -82,32 +113,40 @@
             min-height: 126px;
         }
     }
-}
 
-.is-active {
-    background: rgba(36, 232, 255, 0.05);
-    border: 1px solid rgba(36, 232, 255, 0.8);
-    box-shadow: 0px 0px 20px rgba(36, 232, 255, 0.15);    
+    @keyframes borderEffect {
+        0% {
+            border: none;
+        }
 
-    svg {
-        path {
-            fill: #fff;
+        100% {
+            border: 1px solid rgba(36, 232, 255, 0.8);
         }
     }
 
-    .movies-list {
-        &__header {
-            justify-content: space-between;
+    @keyframes aircraft {
+        0% {
+            transform: translate(0);
         }
 
-        &__box {
-            &-quad {
-                border: 1px solid rgba(36, 232, 255, 0.8);
-            }
+        25% {
+            transform: translate(20%, 0);
         }
 
-        &__detail {
-            transform: rotate(180deg);
+        50% {
+            transform: translate(20%, 10%);
+        }
+
+        75% {
+            transform: translate(20%, 0);
+        }
+
+        90% {
+            transform: translate(20%, -10%);
+        }
+
+        100% {
+            transform: translate(20%, 0);
         }
     }
 }

@@ -9,7 +9,6 @@ import { SwapiService } from '../../service/swapi/swapi.service';
 export class MoviesListComponent implements OnInit {
 
   movies: any = [];
-  activeIndex: number;
 
   @Input() moviesSearched;
 
@@ -33,17 +32,5 @@ export class MoviesListComponent implements OnInit {
         currentMovie.isActive = false;
       });
     });
-  }
-
-  toggleStatus(i: number) {
-    this.activeIndex = i;
-    Object.keys(this.movies.results).map((movieId) => {
-      if (+movieId === this.activeIndex) {
-        this.movies.results[movieId].isActive = !this.movies.results[movieId].isActive; 
-      } else {
-        this.movies.results[movieId].isActive = false;
-      }
-    });    
-    return this.activeIndex;
   }
 }

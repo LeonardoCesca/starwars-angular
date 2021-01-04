@@ -3,6 +3,7 @@
 
     &__title {
         color: #FF0000;
+        font-weight: 500;
         margin-left: 3px;
         cursor: pointer;
     }
@@ -26,6 +27,14 @@
             &:last-child {
                 margin-left: -0.5px;
             }
+        }
+    }
+}
+
+.movies-list {
+    &:hover {
+        &.movies-detail__title {
+            color: #fff;
         }
     }
 }
