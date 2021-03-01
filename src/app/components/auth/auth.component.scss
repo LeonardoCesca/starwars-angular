@@ -36,7 +36,32 @@
                 border: 1px solid #fff;
                 padding: 10px;
                 color: #fff;
+                position: relative;
                 cursor: pointer;
+                transition: all 1s;
+
+                &:hover {
+                    font-weight: 600;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                }
+
+                &::before {
+                    content: '';
+                    width: 0;
+                    height: 100%;
+                    background-color: #FFC500;
+                    opacity: .6;
+                    left: 0;
+                    top: 0;
+                    transition: all 1s ease-in-out;
+                    position: absolute;
+                    z-index: -1;
+                }
+
+                &:hover::before {
+                    width: 100%;
+                }
             }
         }
 
@@ -61,5 +86,4 @@
             }
         }
     }
-
 }
