@@ -17,6 +17,7 @@ export class MoviesDetailComponent implements OnInit {
   planets: any = [];
   planetsResult: string = '';
   loading: boolean = false;
+  loaderType: string = "movies";
 
   constructor(private swapiService: SwapiService) { }
 
@@ -31,7 +32,9 @@ export class MoviesDetailComponent implements OnInit {
         this.swapiService.getPlanetsByUrl(ix).subscribe((planet : any) => { 
           this.planets.push(planet.name);
           this.planetsResult = this.planets.join(", ");
-          this.loading = false;
+          setTimeout(() => {
+            this.loading = false;
+          }, 2500);
         });
       });
     });
