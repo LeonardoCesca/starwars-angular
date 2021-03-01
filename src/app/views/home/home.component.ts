@@ -9,18 +9,12 @@ import { Router } from '@angular/router';
 
 export class HomeComponent implements OnInit {
 
-  hasToken: boolean = false;
-
   constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
   navigateTo() {
-    return localStorage['token'] ? this.router.navigate(['movies']) : this.router.navigate(['login']);
-  }
-
-  checkToken() {
-    return localStorage['token'] ? !this.hasToken : this.hasToken;
+    return this.router.navigate(['login']);
   }
 }

@@ -30,9 +30,7 @@ export class AuthComponent implements OnInit {
 
   constructor(private firebaseService: FirebaseService, private router: Router) { }
 
-  ngOnInit(): void {
-    this.verifyLogged();
-  }
+  ngOnInit(): void { }
 
   get email() {
     return this.authForm.get('email');
@@ -47,7 +45,8 @@ export class AuthComponent implements OnInit {
     if (this.type === 'login') {
       this.firebaseService.login(this.authForm.value).then(
         (user) => {
-          localStorage['token'] = user.user.uid;
+          localStorage.setItem('token', user.user.uid);
+          this.firebaseService.getToken();
           this.loading = !this.loading;
           setTimeout(() => {
             this.router.navigate(['movies']);
@@ -68,10 +67,6 @@ export class AuthComponent implements OnInit {
         this.verifyEmailExists(err);
       });
     }
-  }
-
-  verifyLogged() {
-    return !localStorage['token'] ? '' : this.router.navigate(['movies']);
   }
 
   verifyEmailExists(err) {

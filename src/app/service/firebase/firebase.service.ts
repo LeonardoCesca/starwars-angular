@@ -8,6 +8,8 @@ import { User } from '../../model/user.model';
 })
 export class FirebaseService {
 
+  user: any;
+
   constructor(private afAuth: AngularFireAuth) { }
 
   login ({email, password}: User) {
@@ -16,5 +18,11 @@ export class FirebaseService {
 
   register ({email, password}: User) {
     return this.afAuth.createUserWithEmailAndPassword(email, password);
+  }
+
+  getToken () {
+    this.afAuth.authState.subscribe(user => {
+      this.user = user.uid;
+    })
   }
 }
